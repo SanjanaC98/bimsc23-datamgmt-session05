@@ -41,7 +41,7 @@ function sendValueUpate()
 .modern-range {
   -webkit-appearance: none;
   width: 100%;
-  background: linear-gradient(90deg, #f19af3, #f099b5);
+  background: linear-gradient(90deg, #ba80bb, #722e44);
   height: 17px;
   border-radius: 15px;
   margin: 10px 0px;
@@ -52,7 +52,7 @@ function sendValueUpate()
   height: 15px;
   width: 15px;
   border-radius: 15px;
-  background-color: black;
+  background-color: rgb(249, 249, 249);
   cursor: pointer;
 }
 </style>

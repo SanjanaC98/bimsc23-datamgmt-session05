@@ -3,8 +3,7 @@ to define variables, methods and imports of other Vue compoennts. -->
 <script setup>
 // Import other Vue components in order to add them to a template.
 import SliderInput from "./components/SliderInput.vue";
-import ToggleInput from "./components/ToggleInput.vue";
-import GeometryView from "./components/GeometryView.vue";
+import GeometrySphere from "./components/GeometrySphere.vue";
 
 // Imports from packages
 
@@ -14,25 +13,14 @@ import GeometryView from "./components/GeometryView.vue";
 import { ref } from "vue";
 
 // Define variables and constants
-var count = ref(0);
 var firstSlider = ref(25);
-var runToggle = ref(false);
-
-// Define functions
-function increment() {
-  count.value++;
-  //console.log(`Value is: ${count.value}.`);
-}
 
 function updateValue(newValue, parameterName) {
-  if (parameterName === "Height") {
+  if (parameterName === "Radius") {
     firstSlider.value = newValue;
   }
 }
 
-function updateToggle(newValue) {
-  runToggle.value = newValue;
-}
 </script>
 
 <!-- Template is a HTML-based syntax that allows you to bind the rendered DOM elements
@@ -46,25 +34,19 @@ with data, objects, functions etc. -->
   </div>
 
   <div id="content">
-    <!-- First example -> button -->
-    <!-- <button @click="increment">Add one more</button>
-    <p>Count is: {{  count }}</p> -->
 
     <div>
       <!-- Vue component injected into App.vue component template.
       That makes it App.vue a parent and SliderInput.vue a child. -->
-      <SliderInput title="Height"
+      <SliderInput title="Radius"
         v-bind:min="1" v-bind:max="50" v-bind:step="1"
         v-on:updateValue="updateValue"/>
 
-      <ToggleInput title="Run?" v-on:updateValue="updateToggle"></ToggleInput>
-
       <h2>Value received in App.vue: {{ firstSlider }}</h2>
-      <h2>Value received in App.vue: {{ runToggle }}</h2>
     </div>
 
     <div id="content">
-      <GeometryView :size="firstSlider" />
+      <GeometrySphere :size="firstSlider" />
 
       <!-- uncomment to add another geometryview -->
       <!-- <GeometryView :size="firstSlider"/> -->
