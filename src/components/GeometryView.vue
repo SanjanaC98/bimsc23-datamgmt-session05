@@ -22,7 +22,7 @@ let heigh = 700;
 function init() {
   // rendeder
   renderer = new THREE.WebGLRenderer();
-  renderer.setSize(width, height);
+  renderer.setSize(width, heigh);
   renderer.setPixelRatio(window.devicePixelRatio);
   document.getElementById("threejs-container").appendChild(renderer.domElement);
 
@@ -37,18 +37,23 @@ function init() {
   // orbit controls
   controls = new OrbitControls(camera, renderer.domElement);
 
- // Create a sphere
- const sphereGeometry = new THREE.SphereGeometry(32, 32, 32);
-    const sphereMaterial = new THREE.MeshBasicMaterial();
-    const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
-    sphere.position.x = 2;
-    scene.add(sphere);
+  // add fun shape
+  createBox(25, 25, 25);
+  animate();
+}
 
 // for controls update
 function animate() {
   requestAnimationFrame(animate);
   controls.update();
   renderer.render(scene, camera);
+}
+
+function createBox(l, w, h) {
+  geometry = new THREE.BoxGeometry(l, w, h);
+  const material = new THREE.MeshNormalMaterial();
+  const sphere = new THREE.Mesh(geometry, material);
+  scene.add(sphere);
 }
 
 function onSliderChange(color) {

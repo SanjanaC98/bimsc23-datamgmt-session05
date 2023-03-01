@@ -3,7 +3,10 @@ to define variables, methods and imports of other Vue compoennts. -->
 <script setup>
 // Import other Vue components in order to add them to a template.
 import SliderInput from "./components/SliderInput.vue";
+import GeometryView from "./components/GeometryView.vue";
+import MultiSlider from "./components/MultiSlider.vue";
 import GeometrySphere from "./components/GeometrySphere.vue";
+
 
 // Imports from packages
 
@@ -11,6 +14,7 @@ import GeometrySphere from "./components/GeometrySphere.vue";
 // When ref attribute is added to element, this element then can be referenced
 // in template. It is sort of templatecement of getElementById (but better)
 import { ref } from "vue";
+import GeometrySphere from "./components/GeometrySphere.vue";
 
 // Define variables and constants
 var firstSlider = ref(25);
@@ -41,12 +45,10 @@ with data, objects, functions etc. -->
       <SliderInput title="Radius"
         v-bind:min="1" v-bind:max="50" v-bind:step="1"
         v-on:updateValue="updateValue"/>
-
-      <h2>Value received in App.vue: {{ firstSlider }}</h2>
     </div>
 
     <div id="content">
-      <GeometrySphere :size="firstSlider" />
+      <GeometrySphere :size="firstSlider"/>
 
       <!-- uncomment to add another geometryview -->
       <!-- <GeometryView :size="firstSlider"/> -->
