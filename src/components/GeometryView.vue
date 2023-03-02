@@ -37,8 +37,7 @@ function init() {
   // orbit controls
   controls = new OrbitControls(camera, renderer.domElement);
 
-  // add fun shape
-  createBox(25, 25, 25);
+  createcapsule(10,1,4,8);
   animate();
 }
 
@@ -49,11 +48,12 @@ function animate() {
   renderer.render(scene, camera);
 }
 
-function createBox(l, w, h) {
-  geometry = new THREE.BoxGeometry(l, w, h);
-  const material = new THREE.MeshNormalMaterial();
-  const sphere = new THREE.Mesh(geometry, material);
-  scene.add(sphere);
+
+function createcapsule() {
+const geometry = new THREE.CapsuleGeometry( 1, 1, 4, 8 );
+const material = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
+const capsule = new THREE.Mesh( geometry, material );
+scene.add( capsule );
 }
 
 function onSliderChange(color) {
@@ -88,3 +88,4 @@ onUpdated(() => {
   position: inherit;
 }
 </style>
+

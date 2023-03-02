@@ -14,10 +14,10 @@ import { ref } from "vue";
 
 // Define variables and constants
 var count = ref(0);
-var firstSlider = ref(25);
-var secondSlider = ref(10)
+var firstSlider = ref(3);
+var secondSlider = ref(5)
 var thirdSlider = ref(5)
-var forthSlider = ref(15)
+var forthSlider = ref(10)
 
 
 // // Define functions
@@ -65,15 +65,15 @@ with data, objects, functions etc. -->
       <!-- Vue component injected into App.vue component template.
       That makes it App.vue a parent and SliderInput.vue a child. -->
       <SliderInput title="Radius"
-        v-bind:min="1" v-bind:max="50" v-bind:step="1"
+        v-bind:min="1" v-bind:max="20" v-bind:step="1"
         v-on:updateValue="updateValue"/>
 
       <SliderInput title="Length"
-        v-bind:min="1" v-bind:max="50" v-bind:step="1"
+        v-bind:min="1" v-bind:max="20" v-bind:step="1"
         v-on:updateValue="updateValue"/>
 
       <SliderInput title="Cap Segment"
-        v-bind:min="1" v-bind:max="50" v-bind:step="1"
+        v-bind:min="1" v-bind:max="20" v-bind:step="1"
         v-on:updateValue="updateValue"/>
 
       <SliderInput title="Radial Segment"
