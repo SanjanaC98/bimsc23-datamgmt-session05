@@ -3,7 +3,6 @@ to define variables, methods and imports of other Vue compoennts. -->
 <script setup>
 // Import other Vue components in order to add them to a template.
 import SliderInput from "./components/SliderInput.vue";
-import ToggleInput from "./components/ToggleInput.vue";
 import GeometryView from "./components/GeometryView.vue";
 
 // Imports from packages
@@ -16,16 +15,37 @@ import { ref } from "vue";
 // Define variables and constants
 var count = ref(0);
 var firstSlider = ref(25);
-var runToggle = ref(false);
+var secondSlider = ref(10)
+var thirdSlider = ref(5)
+var forthSlider = ref(15)
 
-// Define functions
-function increment() {
-  count.value++;
-  //console.log(`Value is: ${count.value}.`);
+
+// // Define functions
+// function increment() {
+//   count.value++;
+//   //console.log(`Value is: ${count.value}.`);
+// }
+
+function updateValue(newValue, parameterName) {
+  if (parameterName === "Radius") {
+    firstSlider.value = newValue;
+  }
+}
+
+function updateValue(newValue, paramterName){
+  if (parameterName === "Length") {
+    secondSlider.value = newValue;
+  }
 }
 
 function updateValue(newValue, parameterName) {
-  if (parameterName === "Height") {
+  if (parameterName === "Cap Segment") {
+    firstSlider.value = newValue;
+  }
+}
+
+function updateValue(newValue, parameterName) {
+  if (parameterName === "Radial Segment") {
     firstSlider.value = newValue;
   }
 }
@@ -53,18 +73,36 @@ with data, objects, functions etc. -->
     <div>
       <!-- Vue component injected into App.vue component template.
       That makes it App.vue a parent and SliderInput.vue a child. -->
-      <SliderInput title="Height"
+      <SliderInput title="Radius"
+        v-bind:min="1" v-bind:max="50" v-bind:step="1"
+        v-on:updateValue="updateValue"/>
+
+      <SliderInput title="Length"
+        v-bind:min="1" v-bind:max="50" v-bind:step="1"
+        v-on:updateValue="updateValue"/>
+
+      <SliderInput title="Cap Segment"
+        v-bind:min="1" v-bind:max="50" v-bind:step="1"
+        v-on:updateValue="updateValue"/>
+
+      <SliderInput title="Radial Segment"
         v-bind:min="1" v-bind:max="50" v-bind:step="1"
         v-on:updateValue="updateValue"/>
 
       <ToggleInput title="Run?" v-on:updateValue="updateToggle"></ToggleInput>
 
       <h2>Value received in App.vue: {{ firstSlider }}</h2>
+      <h2>Value received in App.vue: {{ secondSlider }}</h2>
+      <h2>Value received in App.vue: {{ thirdSlider }}</h2>
+      <h2>Value received in App.vue: {{ forthSlider }}</h2>
       <h2>Value received in App.vue: {{ runToggle }}</h2>
     </div>
 
     <div id="content">
       <GeometryView :size="firstSlider" />
+      <GeometryView :size="secondSlider" />
+      <GeometryView :size="thirdSlider" />
+      <GeometryView :size="forthSlider" />
 
       <!-- uncomment to add another geometryview -->
       <!-- <GeometryView :size="firstSlider"/> -->
