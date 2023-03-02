@@ -13,10 +13,10 @@ import GeometryView from "./components/GeometryView.vue";
 import { ref } from "vue";
 
 // Define variables and constants
-var count = ref(0);
+
 var firstSlider = ref(3);
 var secondSlider = ref(5)
-var thirdSlider = ref(5)
+var thirdSlider = ref(2)
 var forthSlider = ref(10)
 
 
@@ -41,9 +41,6 @@ function updateValue(newValue, parameterName) {
   }
 }
 
-function updateToggle(newValue) {
-  runToggle.value = newValue;
-}
 </script>
 
 <!-- Template is a HTML-based syntax that allows you to bind the rendered DOM elements
@@ -52,7 +49,8 @@ with data, objects, functions etc. -->
   <div id="top-bar">
     <div id="title-container">
       <img class="logo-image" alt="Iaac logo" src="./assets/iaac-white.png" />
-      <h2>Digital Tools for Cloud-based Data Management</h2>
+      <h2>Digital Tools for Cloud-based Data Management  </h2>
+      <p>  - Tablet Shape Creator</p>
     </div>
   </div>
 
@@ -64,33 +62,22 @@ with data, objects, functions etc. -->
     <div>
       <!-- Vue component injected into App.vue component template.
       That makes it App.vue a parent and SliderInput.vue a child. -->
-      <SliderInput title="Radius"
-        v-bind:min="1" v-bind:max="20" v-bind:step="1"
-        v-on:updateValue="updateValue"/>
+      <SliderInput title="Radius" v-bind:min="1" v-bind:max="20" v-bind:step="1" v-on:updateValue="updateValue"/>
+      <SliderInput title="Length" v-bind:min="1" v-bind:max="20" v-bind:step="1" v-on:updateValue="updateValue"/>
+      <SliderInput title="Cap Segment" v-bind:min="1" v-bind:max="5" v-bind:step="0.5" v-on:updateValue="updateValue"/>
+      <SliderInput title="Radial Segment" v-bind:min="1" v-bind:max="12" v-bind:step="0.5" v-on:updateValue="updateValue"/>
 
-      <SliderInput title="Length"
-        v-bind:min="1" v-bind:max="20" v-bind:step="1"
-        v-on:updateValue="updateValue"/>
-
-      <SliderInput title="Cap Segment"
-        v-bind:min="1" v-bind:max="20" v-bind:step="1"
-        v-on:updateValue="updateValue"/>
-
-      <SliderInput title="Radial Segment"
-        v-bind:min="1" v-bind:max="50" v-bind:step="1"
-        v-on:updateValue="updateValue"/>
-
-      <ToggleInput title="Run?" v-on:updateValue="updateToggle"></ToggleInput>
+  
 
       <h2>Value received in App.vue: {{ firstSlider }}</h2>
       <h2>Value received in App.vue: {{ secondSlider }}</h2>
       <h2>Value received in App.vue: {{ thirdSlider }}</h2>
       <h2>Value received in App.vue: {{ forthSlider }}</h2>
-      <h2>Value received in App.vue: {{ runToggle }}</h2>
+  
     </div>
 
     <div id="content">
-      <GeometryView :size="firstSlider" />
+      <GeometryView :Radius="firstSlider" :Length="secondSlider" :CapSegment="thirdSlider" :RadialSegment="forthSlider" />
 
       <!-- uncomment to add another geometryview -->
       <!-- <GeometryView :size="firstSlider"/> -->
@@ -112,7 +99,7 @@ with data, objects, functions etc. -->
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.473);
 }
 
 #title-container {
@@ -138,5 +125,11 @@ h2 {
   font-size: 1.125rem;
   font-weight: 600;
   letter-spacing: 0.01em;
+  vertical-align: bottom;
+}
+p {
+  font-size: x-small;
+  font-weight: 300;
+  vertical-align: bottom;
 }
 </style>

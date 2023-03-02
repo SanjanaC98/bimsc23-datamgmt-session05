@@ -11,7 +11,7 @@ const emits = defineEmits(['updateValue'])
 
 
 
-var sliderValue = ref(25)
+var sliderValue = ref()
 
 function sendValueUpate()
 {
@@ -41,7 +41,7 @@ function sendValueUpate()
 .modern-range {
   -webkit-appearance: none;
   width: 100%;
-  background: linear-gradient(90deg, #f19af3, #f099b5);
+  background: linear-gradient(90deg, hsl(299, 97%, 86%), #f65e5e);
   height: 17px;
   border-radius: 15px;
   margin: 10px 0px;
