@@ -30,23 +30,14 @@ function updateValue(newValue, parameterName) {
   if (parameterName === "Radius") {
     firstSlider.value = newValue;
   }
-}
-
-function updateValue(newValue, paramterName){
   if (parameterName === "Length") {
     secondSlider.value = newValue;
   }
-}
-
-function updateValue(newValue, parameterName) {
   if (parameterName === "Cap Segment") {
-    firstSlider.value = newValue;
+    thirdSlider.value = newValue;
   }
-}
-
-function updateValue(newValue, parameterName) {
   if (parameterName === "Radial Segment") {
-    firstSlider.value = newValue;
+    forthSlider.value = newValue;
   }
 }
 
@@ -100,9 +91,6 @@ with data, objects, functions etc. -->
 
     <div id="content">
       <GeometryView :size="firstSlider" />
-      <GeometryView :size="secondSlider" />
-      <GeometryView :size="thirdSlider" />
-      <GeometryView :size="forthSlider" />
 
       <!-- uncomment to add another geometryview -->
       <!-- <GeometryView :size="firstSlider"/> -->
